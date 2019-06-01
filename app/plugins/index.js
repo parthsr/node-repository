@@ -1,9 +1,8 @@
-const Good = require("./good");
+const Inert = require("@hapi/inert");
+const Vision = require("@hapi/vision");
 const Swagger = require("./swagger");
+const Good = require("./good");
 
-let plugins = [Swagger];
-if (process.env.NODE_ENV !== "test") {
-  plugins = plugins.concat([Good]);
-}
+const plugins = [Inert, Vision, Swagger, Good];
 
 module.exports = plugins;

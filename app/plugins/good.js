@@ -3,18 +3,20 @@ const Good = require("good");
 module.exports = {
   plugin: Good,
   options: {
+    ops: {
+      interval: 1000,
+    },
     reporters: {
-      myConsoleReporter: [{
-        module: "good-squeeze",
-        name: "Squeeze",
-        args: [{
-          error: "*",
-          log: "*",
-          response: { exclude: "health" },
-          request: "*",
-        }],
-      },
-      "stdout",
+      myConsoleReporter: [
+        {
+          module: "@hapi/good-squeeze",
+          name: "Squeeze",
+          args: [{ log: "*", response: "*" }],
+        },
+        {
+          module: "@hapi/good-console",
+        },
+        "stdout",
       ],
     },
   },

@@ -7,7 +7,8 @@ class ApiError extends Error {
   }
 
   static handleErrors(error, h) {
-    const status = error.response ? error.response.status : error.output.statusCode;
+    const status = error.response.output.statusCode;
+    console.log(status);
     if (!errorConstants[status]) {
       return h.response(error.message).code(status);
     }

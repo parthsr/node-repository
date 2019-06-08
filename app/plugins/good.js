@@ -1,4 +1,4 @@
-const Good = require("good");
+const Good = require("@hapi/good");
 
 module.exports = {
   plugin: Good,
